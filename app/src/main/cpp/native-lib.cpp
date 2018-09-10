@@ -239,4 +239,15 @@ extern "C"
 
 
  }
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_ushaqi_zhuishushenqi_signture_show(JNIEnv *env, jobject thiz, jobject context,
+                                            jstring cstr) {
+    jclass jc_Toast = env->FindClass("android/widget/Toast");
+    jmethodID jm_makeText = env->GetStaticMethodID(jc_Toast, "makeText",
+                                                   "(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;");
+    jobject jo_Toast = env->CallStaticObjectMethod(jc_Toast, jm_makeText, context, cstr, 0);
+    jmethodID jm_Show = env->GetMethodID(jc_Toast, "show", "()V");
+    env->CallVoidMethod(jo_Toast, jm_Show);
+}
 
