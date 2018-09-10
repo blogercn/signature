@@ -71,7 +71,9 @@ Java_com_ushaqi_zhuishushenqi_signture_checkSha1(
     char *sha1 = getSha1(env, contextObject);
 
     jboolean result = checkValidity(env, sha1);
-
+    if (sha1 != NULL) {
+        delete (sha1);
+    }
     return result;
 }
 
@@ -222,6 +224,9 @@ extern "C"
      LOGI("jiaABC>>>>>>>>>>>>>>>>>>>--------------------result=%d", result);
      char *sha1 = getSha1(env, contextObject);
      jboolean bSignature = checkValidity(env, sha1);
+     if (sha1 != NULL) {
+         delete (sha1);
+     }
      LOGI("jiaABC>>>>>>>>>>>>>>>>>>>--------------------bSignature=%d", bSignature);
      jmethodID dlg1 =  env->GetStaticMethodID(cls, "ErrorDialog", "(Landroid/content/Context;)V");
      jmethodID dlg2 =  env->GetStaticMethodID(cls, "RightDialog", "(Landroid/content/Context;)V");

@@ -27,20 +27,6 @@ android {
             path "CMakeLists.txt"
         }
     }
-    signingConfigs {
-        release {
-            storeFile file("release.keystore")
-            storePassword "2eJNNeMebXmHYA13QzlR"
-            keyAlias "zhuishushenqi"
-            keyPassword "Mbu6O8k1aIDOTPfv5GEF"
-        }
-        debug {
-            storeFile file("release.keystore")
-            storePassword "2eJNNeMebXmHYA13QzlR"
-            keyAlias "zhuishushenqi"
-            keyPassword "Mbu6O8k1aIDOTPfv5GEF"
-        }
-    }
 }
 
 dependencies {
